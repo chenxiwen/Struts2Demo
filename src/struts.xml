@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN"
+ "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="base" extends="struts-default">
+		<global-results>
+			<result name="error">/error.jsp</result>
+			<result name="404" type="redirect">/404.jsp</result>
+		</global-results>
+	</package>
+
+	<package name="helloWorld" namespace="/helloWorld" extends="base">
+		<action name="welcome" class="com.ender.struts2.demo.helloWorld.HelloWorld" method="welcome">
+			<result name="success">/WEB-INF/WelcomePage.jsp</result>
+		</action>
+		<action name="sayHi" class="com.ender.struts2.demo.helloWorld.HelloWorld" method="sayHi">
+			<result name="success">/index.jsp</result>
+		</action>
+	</package>
+	
+	<package name="testGlobalResult" namespace="/testGlobal" extends="base">
+		<action name="test404" class="com.ender.struts2.demo.helloWorld.GlobalResultTest" method="test404">
+		</action>
+		
+		<action name="testError" class="com.ender.struts2.demo.helloWorld.GlobalResultTest" method="testError">
+			<param name="ActionParam">汉字测试ActionParam</param>
+		</action>
+	</package>
+</struts>    
